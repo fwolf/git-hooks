@@ -1,5 +1,7 @@
 #! /usr/bin/env bash
 #====================================================================
+# Git relate functions
+#
 # Copyright 2017 Fwolf <fwolf.aide+git-hooks@gmail.com>
 # All rights reserved.
 #

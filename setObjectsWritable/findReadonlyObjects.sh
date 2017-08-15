@@ -20,7 +20,7 @@
 SCRIPT_DIR=${0%/*}/
 
 
-. "$SCRIPT_DIR"function.sh
+. "$SCRIPT_DIR"git-functions.sh
 
 checkGitCommandAvailable
 
