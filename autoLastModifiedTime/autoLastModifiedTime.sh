@@ -12,7 +12,7 @@
 # Distributed under the MIT License.
 # https://opensource.org/licenses/MIT
 #
-# Last Modified: 2017-08-15
+# Last Modified: 2017-08-16 02:12:36, r7
 #====================================================================
 
 
@@ -28,7 +28,10 @@ do
             git show "$OBJECT" > "$STAGED_FILE"
 
             # Do change
-            CHANGED_FILE=$(mktemp)
+            # Target file need current ext name for filter by update script
+            CHANGED_FILE_BASENAME=`basename "$FILE_PATH"`
+            CHANGED_FILE_EXT=`sed 's/^\w\+.//' <<< "${CHANGED_FILE_BASENAME}"`
+            CHANGED_FILE=$(mktemp).${CHANGED_FILE_EXT}
             cp "$STAGED_FILE" "$CHANGED_FILE"
             "$SCRIPT_DIR"updateLastModifiedTime.php "$CHANGED_FILE"
 

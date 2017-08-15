@@ -5,7 +5,7 @@
 # Distributed under the MIT License.
 # https://opensource.org/licenses/MIT
 #
-# Last Modified: 2017-08-15
+# Last Modified: 2017-08-16 02:12:36, r7
 #====================================================================
 
 
@@ -32,6 +32,7 @@ chmod +x updateLastModifiedTime.php \
 # Special call with 'source' and exit code check when commit maybe rejected
 HOOK_CONTENT=". \${0%/*}/autoLastModifiedTime.sh
 if [ 0 -ne \${EXIT_CODE} ]; then
+    echo Commit rejected by autoLastModifiedTime hook
     exit 1
 fi"
 
