@@ -13,12 +13,19 @@ Call `install.sh` in hook sub directory, eg:
 ## Hooks Intro
 
 
+### autoLastModifiedTime
+
+Update Last Modified Time in source code when submit.
+
+Script `updateLastModifiedTime.php` can use manually.
+
+
 ### setObjectsWritable
 
 
 Set all files in `.git` writable for current user.
 
-There is also a script `findReadonlyObjects.sh` to find readonly files in `.git`.
+Script `findReadonlyObjects.sh` can use manually to find readonly files in `.git`.
 
 
 
