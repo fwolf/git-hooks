@@ -20,37 +20,13 @@
 SCRIPT_DIR=${0%/*}/
 
 
-# Check if git command is available
-# @see https://stackoverflow.com/a/7522866/1759745
-if ! type "git" > /dev/null 2>&1; then
-    echo
-    echo "Command 'git' is not available"
-    exit
-fi
+. "$SCRIPT_DIR"function.sh
 
+checkGitCommandAvailable
 
-# Find .git dir location
-# Will return absolute path
-GIT_ROOT=`git rev-parse --show-toplevel`
-if [ 0 -ne $? ]; then
-    echo
-    echo "This command must run in git repository"
-    exit
-fi
+checkGitRoot
 
-
-# Check is git or submodule
-if [ -d "$GIT_ROOT"/.git ]; then
-    # This is a normal git repository, dest is absolute path
-    DEST_DIR="$GIT_ROOT"/.git/
-else
-    # This a git submodule repository, dest is relate path from submodule root
-    # Git dir is under parent git repo, but still is a complete repo
-    # Got: gitdir: ../../.git/modules/blah
-    DEST_DIR=`cat "$GIT_ROOT"/.git`
-    # Get tail part
-    DEST_DIR=${DEST_DIR:8}
-fi
+findGitRepositoryDir "$GIT_ROOT"
 
 
 checkFile() {
@@ -61,4 +37,4 @@ checkFile() {
 
 
 cd "$GIT_ROOT"
-find "$DEST_DIR" | xargs -I '{}' bash -c "$(declare -f checkFile); checkFile '{}'"
+find "$GIT_REPO_DIR" | xargs -I '{}' bash -c "$(declare -f checkFile); checkFile '{}'"
