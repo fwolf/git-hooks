@@ -10,13 +10,13 @@
 # Usage: Write a start date like `Last Modified: 2017-08-17` in head lines of
 # your code, the script will change it to full format, and update when hook run.
 # Configs like time format pattern, allowed file types, are set in
-# `updateLastModifiedTime.php'.
+# `update-last-modified-time.php'.
 #
 #
 # Copyright 2017 Fwolf <fwolf.aide+git-hooks@gmail.com>
 # Distributed under the MIT license.
 #
-# Last Modified: 2017-08-17T12:44:49+08:00, r17
+# Last Modified: 2017-08-17T16:50:33+08:00, r20
 #====================================================================
 
 
@@ -37,7 +37,7 @@ do
             CHANGED_FILE_EXT=`sed 's/^\w\+.//' <<< "${CHANGED_FILE_BASENAME}"`
             CHANGED_FILE=$(mktemp).${CHANGED_FILE_EXT}
             cp "$STAGED_FILE" "$CHANGED_FILE"
-            "$SCRIPT_DIR"updateLastModifiedTime.php "$CHANGED_FILE"
+            "$SCRIPT_DIR"update-last-modified-time.php "$CHANGED_FILE"
 
             # Write new file blob to object database
             CHANGED_HASH=`git hash-object -w "$CHANGED_FILE"`

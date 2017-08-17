@@ -3,7 +3,7 @@
 # Copyright 2017 Fwolf <fwolf.aide+git-hooks@gmail.com>
 # Distributed under the MIT license.
 #
-# Last Modified: 2017-08-17T12:44:49+08:00, r17
+# Last Modified: 2017-08-17T16:50:33+08:00, r20
 #====================================================================
 
 
@@ -20,21 +20,25 @@ findGitRepositoryDir "$GIT_ROOT"
 
 cp -r "$SCRIPT_DIR"../inc/ "$GIT_REPO_DIR"hooks/
 cp "$SCRIPT_DIR"../fix-permissions.sh "$GIT_REPO_DIR"hooks/
-cp "$SCRIPT_DIR"findReadonlyObjects.sh "$GIT_REPO_DIR"hooks/
-cp "$SCRIPT_DIR"setObjectsWritable.sh "$GIT_REPO_DIR"hooks/
+cp "$SCRIPT_DIR"update-last-modified-time.php "$GIT_REPO_DIR"hooks/
+cp "$SCRIPT_DIR"auto-last-modified-time.sh "$GIT_REPO_DIR"hooks/
 
 PWD_BAK="$PWD"
 cd "$GIT_REPO_DIR"hooks/
 chmod +x fix-permissions.sh \
-    findReadonlyObjects.sh \
-    setObjectsWritable.sh
+    update-last-modified-time.php \
+    auto-last-modified-time.sh
 chmod +x inc/*
 
 
-HOOK_CONTENT="\${0%/*}/setObjectsWritable.sh"
+# Special call with 'source' and exit code check when commit maybe rejected
+HOOK_CONTENT=". \${0%/*}/auto-last-modified-time.sh
+if [ 0 -ne \${EXIT_CODE} ]; then
+    echo Commit rejected by auto-last-modified-time hook
+    exit 1
+fi"
 
-installHook post-commit $HOOK_CONTENT 1l0ebpnpj11s5j5p
-installHook post-merge $HOOK_CONTENT 1l0ebpnpj11s5j5p
+installHook pre-commit "$HOOK_CONTENT" 1l0pmscuzl1szqu7
 
 
 cd "$PWD_BAK"

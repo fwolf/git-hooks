@@ -43,24 +43,25 @@ code of the hook you want, and delete code rows.
 ## Hooks Intro
 
 
-### autoLastModifiedTime
+### auto-last-modified-time
 
 Update Last Modified Time in source code when submit.
 
-Script `updateLastModifiedTime.php` can use manually.
+Script `update-last-modified-time.php` can use manually.
 
 Usage: Write a start date like `Last Modified: 2017-08-17` in head lines of your
 code, the script will change it to full format, and update when hook run.
 Configs like time format pattern, allowed file types, are set in
-`updateLastModifiedTime.php'.
+`update-last-modified-time.php'.
 
 
-### setObjectsWritable
+### set-objects-writable
 
 
 Set all files in `.git` writable for current user.
 
-Script `findReadonlyObjects.sh` can use manually to find readonly files in `.git`.
+Script `find-readonly-objects.sh` can use manually to find readonly files in
+`.git`.
 
 
 
