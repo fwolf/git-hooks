@@ -13,7 +13,7 @@
 # Distributed under the MIT License.
 # https://opensource.org/licenses/MIT
 #
-# Last Modified: 2017-08-17T12:21:39+08:00, r13
+# Last Modified: 2017-08-17T12:36:16+08:00, r16
 #====================================================================
 
 
@@ -32,6 +32,7 @@ cd ${SCRIPT_DIR}
 
 addPermissions "*.php"
 addPermissions "*.sh"
+addPermissions "inc/*"
 
 addPermissions post-commit
 addPermissions post-merge
