@@ -4,13 +4,11 @@
 #
 # The readonly files in .git/ will cause nutstore stop sync.
 #
-# Gist: https://gist.github.com/fwolf/e4b4c99e3c7b9728cd1a9ec9fbc73b21
-#
 #
 # Copyright 2017 Fwolf <fwolf.aide+git-hooks@gmail.com>
 # Distributed under the MIT license.
 #
-# Last Modified: 2017-08-17T12:44:49+08:00, r17
+# Last Modified: 2017-08-17T16:31:19+08:00, r19
 #====================================================================
 
 

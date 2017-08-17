@@ -2,13 +2,11 @@
 #====================================================================
 # Set git object files writable so can sync with nutstore
 #
-# Gist: https://gist.github.com/fwolf/085b647532a3bde27de9aee9622212a2
-#
 #
 # Copyright 2017 Fwolf <fwolf.aide+git-hooks@gmail.com>
 # Distributed under the MIT license.
 #
-# Last Modified: 2017-08-17T12:44:49+08:00, r17
+# Last Modified: 2017-08-17T16:31:19+08:00, r19
 #====================================================================
 
 
