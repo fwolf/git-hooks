@@ -8,14 +8,14 @@
 # Copyright 2017 Fwolf <fwolf.aide+git-hooks@gmail.com>
 # Distributed under the MIT license.
 #
-# Last Modified: 2017-08-17T16:50:33+08:00, r20
+# Last Modified: 2017-08-17T17:01:23+08:00, r21
 #====================================================================
 
 
 SCRIPT_DIR=${0%/*}/
 
 
-. "$SCRIPT_DIR"inc/git-functions.sh
+. "$SCRIPT_DIR"../inc/git-functions.sh
 
 checkGitCommandAvailable
 

@@ -4,6 +4,7 @@
 
 ### Un-versioned
 
+- Move scripts to their own sub directory
 - Change filename from camelCase to with dashes
 
 

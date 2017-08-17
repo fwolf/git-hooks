@@ -3,7 +3,7 @@
 # Copyright 2017 Fwolf <fwolf.aide+git-hooks@gmail.com>
 # Distributed under the MIT license.
 #
-# Last Modified: 2017-08-17T16:50:33+08:00, r20
+# Last Modified: 2017-08-17T17:01:23+08:00, r21
 #====================================================================
 
 
@@ -19,19 +19,17 @@ findGitRepositoryDir "$GIT_ROOT"
 
 
 cp -r "$SCRIPT_DIR"../inc/ "$GIT_REPO_DIR"hooks/
+cp -r "$SCRIPT_DIR"../set-objects-writable/ "$GIT_REPO_DIR"hooks/
 cp "$SCRIPT_DIR"../fix-permissions.sh "$GIT_REPO_DIR"hooks/
-cp "$SCRIPT_DIR"find-readonly-objects.sh "$GIT_REPO_DIR"hooks/
-cp "$SCRIPT_DIR"set-objects-writable.sh "$GIT_REPO_DIR"hooks/
 
 PWD_BAK="$PWD"
 cd "$GIT_REPO_DIR"hooks/
-chmod +x fix-permissions.sh \
-    find-readonly-objects.sh \
-    set-objects-writable.sh
 chmod +x inc/*
+chmod +x set-objects-writable/*
+chmod +x fix-permissions.sh
 
 
-HOOK_CONTENT="\${0%/*}/set-objects-writable.sh"
+HOOK_CONTENT="\${0%/*}/set-objects-writable/set-objects-writable.sh"
 
 installHook post-commit $HOOK_CONTENT 1l0ebpnpj11s5j5p
 installHook post-merge $HOOK_CONTENT 1l0ebpnpj11s5j5p

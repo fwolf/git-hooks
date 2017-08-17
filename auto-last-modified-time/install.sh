@@ -3,7 +3,7 @@
 # Copyright 2017 Fwolf <fwolf.aide+git-hooks@gmail.com>
 # Distributed under the MIT license.
 #
-# Last Modified: 2017-08-17T16:50:33+08:00, r20
+# Last Modified: 2017-08-17T17:01:23+08:00, r21
 #====================================================================
 
 
@@ -19,20 +19,18 @@ findGitRepositoryDir "$GIT_ROOT"
 
 
 cp -r "$SCRIPT_DIR"../inc/ "$GIT_REPO_DIR"hooks/
+cp -r "$SCRIPT_DIR"../auto-last-modified-time/ "$GIT_REPO_DIR"hooks/
 cp "$SCRIPT_DIR"../fix-permissions.sh "$GIT_REPO_DIR"hooks/
-cp "$SCRIPT_DIR"update-last-modified-time.php "$GIT_REPO_DIR"hooks/
-cp "$SCRIPT_DIR"auto-last-modified-time.sh "$GIT_REPO_DIR"hooks/
 
 PWD_BAK="$PWD"
 cd "$GIT_REPO_DIR"hooks/
-chmod +x fix-permissions.sh \
-    update-last-modified-time.php \
-    auto-last-modified-time.sh
 chmod +x inc/*
+chmod +x auto-last-modified-time/*
+chmod +x fix-permissions.sh
 
 
 # Special call with 'source' and exit code check when commit maybe rejected
-HOOK_CONTENT=". \${0%/*}/auto-last-modified-time.sh
+HOOK_CONTENT=". \${0%/*}/auto-last-modified-time/auto-last-modified-time.sh
 if [ 0 -ne \${EXIT_CODE} ]; then
     echo Commit rejected by auto-last-modified-time hook
     exit 1
