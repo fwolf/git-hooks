@@ -20,6 +20,7 @@ findGitRepositoryDir "$GIT_ROOT"
 
 cp -r "$SCRIPT_DIR"../inc/ "$GIT_REPO_DIR"hooks/
 cp -r "$SCRIPT_DIR"../auto-last-modified-time/ "$GIT_REPO_DIR"hooks/
+rm "$GIT_REPO_DIR"hooks/auto-last-modified-time/install.sh
 cp "$SCRIPT_DIR"../fix-permissions.sh "$GIT_REPO_DIR"hooks/
 
 PWD_BAK="$PWD"
