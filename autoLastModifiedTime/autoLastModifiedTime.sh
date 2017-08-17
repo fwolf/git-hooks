@@ -7,12 +7,18 @@
 # which is newer.
 #
 #
+# Usage: Write a start date like `Last Modified: 2017-08-17` in head lines of
+# your code, the script will change it to full format, and update when hook run.
+# Configs like time format pattern, allowed file types, are set in
+# `updateLastModifiedTime.php'.
+#
+#
 # Copyright 2017 Fwolf <fwolf.aide+git-hooks@gmail.com>
 #
 # Distributed under the MIT License.
 # https://opensource.org/licenses/MIT
 #
-# Last Modified: 2017-08-16T02:30:52+08:00, r9
+# Last Modified: 2017-08-17T11:14:37+08:00, r12
 #====================================================================
 
 
