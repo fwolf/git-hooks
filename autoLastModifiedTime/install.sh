@@ -5,7 +5,7 @@
 # Distributed under the MIT License.
 # https://opensource.org/licenses/MIT
 #
-# Last Modified: 2017-08-16T02:30:52+08:00, r9
+# Last Modified: 2017-08-17T12:24:50+08:00, r14
 #====================================================================
 
 
@@ -20,12 +20,14 @@ checkGitRoot
 findGitRepositoryDir "$GIT_ROOT"
 
 
+cp "$SCRIPT_DIR"../fix-permissions.sh "$GIT_REPO_DIR"hooks/
 cp "$SCRIPT_DIR"updateLastModifiedTime.php "$GIT_REPO_DIR"hooks/
 cp "$SCRIPT_DIR"autoLastModifiedTime.sh "$GIT_REPO_DIR"hooks/
 
 PWD_BAK="$PWD"
 cd "$GIT_REPO_DIR"hooks/
-chmod +x updateLastModifiedTime.php \
+chmod +x fix-permissions.sh \
+    updateLastModifiedTime.php \
     autoLastModifiedTime.sh
 
 
