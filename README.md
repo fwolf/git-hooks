@@ -66,4 +66,4 @@ Script `findReadonlyObjects.sh` can use manually to find readonly files in `.git
 
 ## License
 
-Distribute under MIT License.
+Distribute under the MIT license.
