@@ -3,7 +3,7 @@
 # Copyright 2017 Fwolf <fwolf.aide+git-hooks@gmail.com>
 # Distributed under the MIT license.
 #
-# Last Modified: 2017-08-17T17:01:23+08:00, r21
+# Last Modified: 2017-08-17T17:32:57+08:00, r23
 #====================================================================
 
 
@@ -30,10 +30,10 @@ chmod +x auto-last-modified-time/*
 chmod +x fix-permissions.sh
 
 
-# Special call with 'source' and exit code check when commit maybe rejected
-HOOK_CONTENT=". \${0%/*}/auto-last-modified-time/auto-last-modified-time.sh
-if [ 0 -ne \${EXIT_CODE} ]; then
-    echo Commit rejected by auto-last-modified-time hook
+# Script need explicit exit with a code, and check here for reject
+HOOK_CONTENT="\${0%/*}/auto-last-modified-time/auto-last-modified-time.sh
+if [ 0 -ne \$? ]; then
+    echo Commit is rejected by auto-last-modified-time hook
     exit 1
 fi"
 
