@@ -5,7 +5,7 @@
 # Distributed under the MIT License.
 # https://opensource.org/licenses/MIT
 #
-# Last Modified: 2017-08-17T12:24:50+08:00, r14
+# Last Modified: 2017-08-17T12:27:49+08:00, r15
 #====================================================================
 
 
@@ -13,7 +13,7 @@ SCRIPT_DIR=${0%/*}/
 
 
 . "$SCRIPT_DIR"../setObjectsWritable/git-functions.sh
-. "$SCRIPT_DIR"../inc/hook-file-operate.sh
+. "$SCRIPT_DIR"../inc/hook-file-functions.sh
 
 
 checkGitRoot

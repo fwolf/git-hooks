@@ -3,12 +3,11 @@
 # Functions to operate hook file
 #
 # Copyright 2017 Fwolf <fwolf.aide+git-hooks@gmail.com>
-# All rights reserved.
 #
 # Distributed under the MIT License.
 # https://opensource.org/licenses/MIT
 #
-# Last Modified: 2017-08-15
+# Last Modified: 2017-08-17T12:27:49+08:00, r15
 #====================================================================
 
 
