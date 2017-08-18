@@ -16,7 +16,7 @@
 # Copyright 2017 Fwolf <fwolf.aide+git-hooks@gmail.com>
 # Distributed under the MIT license.
 #
-# Last Modified: 2017-08-18T16:40:33+08:00, r24
+# Last Modified: 2017-08-18T16:54:52+08:00, r25
 #====================================================================
 
 
@@ -38,7 +38,8 @@ do
     MODE=${ARR[0]}
     OBJECT=${ARR[1]}
     STAGE=${ARR[2]}
-    FILE_PATH=${ARR[3]}
+    # File path may contain space
+    FILE_PATH=${ARR[*]:3}
 
     if [[ "10" == "${MODE:0:2}" ]]; then
         # Deal with this file, copy staged status out
