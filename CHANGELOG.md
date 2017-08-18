@@ -4,6 +4,7 @@
 
 ### Un-versioned
 
+- Move loop of cached files to function
 - Optimize read of staged file in pre-commit
 - Move scripts to their own sub directory
 - Change filename from camelCase to with dashes
