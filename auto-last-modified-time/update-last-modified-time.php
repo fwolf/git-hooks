@@ -9,7 +9,7 @@
  * @copyright   Copyright 2017 Fwolf <fwolf.aide+git-hooks@gmail.com>
  * @license     https://opensource.org/licenses/MIT MIT
  *
- * Last Modified: 2017-08-17T16:50:33+08:00, r20
+ * Last Modified: 2017-08-18T16:40:33+08:00, r24
  */
 
 
@@ -53,3 +53,7 @@ sed -i -e "1,{$scanLines}s/{$pattern}/{$replacement}/" "$destFile"
 TAG;
 
 exec($cmd);
+
+
+// End script with error code
+exit(0);

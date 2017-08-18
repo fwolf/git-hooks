@@ -4,6 +4,7 @@
 
 ### Un-versioned
 
+- Optimize read of staged file in pre-commit
 - Move scripts to their own sub directory
 - Change filename from camelCase to with dashes
 
