@@ -4,7 +4,7 @@
  * @copyright   Copyright 2017 Fwolf <fwolf.aide+git-hooks@gmail.com>
  * @license     https://opensource.org/licenses/MIT MIT
  *
- * Last Modified: 2017-08-20T10:52:12+08:00, r29
+ * Last Modified: 2017-08-20T10:57:12+08:00, r30
  */
 
 
@@ -16,6 +16,12 @@ $allowedExt = [
 $codingStandard = 'psr2';
 // Other options used by phpcs
 $otherOptions = '';
+
+// Load user config
+$userConfigFile = __DIR__ . '/config.php';
+if (file_exists($userConfigFile) && is_readable($userConfigFile)) {
+    require $userConfigFile;
+}
 
 
 $destFile = $argv[1];
