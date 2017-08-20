@@ -11,7 +11,7 @@
 # Copyright 2017 Fwolf <fwolf.aide+git-hooks@gmail.com>
 # Distributed under the MIT license.
 #
-# Last Modified: 2017-08-20T08:49:03+08:00, r28
+# Last Modified: 2017-08-20T10:52:12+08:00, r29
 #====================================================================
 
 
@@ -31,6 +31,7 @@ cd ${SCRIPT_DIR}
 chmod +x fix-permissions.sh
 addPermissions "auto-last-modified-time/*"
 addPermissions "inc/*"
+addPermissions "phpcs/*"
 addPermissions "set-objects-writable/*"
 
 addPermissions post-commit

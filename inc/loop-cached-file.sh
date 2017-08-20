@@ -5,12 +5,12 @@
 # Copyright 2017 Fwolf <fwolf.aide+git-hooks@gmail.com>
 # Distributed under the MIT license.
 #
-# Last Modified: 2017-08-18T17:26:28+08:00, r26
+# Last Modified: 2017-08-20T10:52:12+08:00, r29
 #====================================================================
 
 
-# Loop through cached file, change them with given script, the add to cache
-# Use in pre-commit to do automatic content change
+# Loop through cached file, change them with given script, the add to cache.
+# Use in pre-commit to do automatic content change.
 function loopChangeCachedFiles() {
     for FILE in `git diff-index --cached --name-only HEAD`
     do
@@ -56,5 +56,34 @@ function loopChangeCachedFiles() {
             rm "$STAGED_FILE"
             rm "$CHANGED_FILE"
         fi
+    done
+}
+
+
+# Loop through cached file, check if they obey rules or convention.
+# Use in pre-commit to do prevent commit if check fail.
+# Un-staged file part will NOT be checked.
+function loopCheckCachedFiles() {
+    for FILE in `git diff-index --cached --name-only HEAD`
+    do
+        # Extract file info
+        ARR=( `git ls-files --stage "$FILE"` )
+        MODE=${ARR[0]}
+        OBJECT=${ARR[1]}
+        STAGE=${ARR[2]}
+        # File path may contain space
+        FILE_PATH=${ARR[*]:3}
+
+        # Copy staged file out and keep extension
+        STAGED_FILE_BASENAME=`basename "$FILE_PATH"`
+        STAGED_FILE_EXT=`sed 's/^\w\+.//' <<< "${STAGED_FILE_BASENAME}"`
+        STAGED_FILE=$(mktemp).${STAGED_FILE_EXT}
+        git show "$OBJECT" > "$STAGED_FILE"
+
+        # Run check and catch exit code
+        $1 "$STAGED_FILE" "$FILE_PATH"
+        let EXIT_CODE+=$?
+
+        rm "$STAGED_FILE"
     done
 }
