@@ -3,7 +3,7 @@
 # Copyright 2017 Fwolf <fwolf.aide+git-hooks@gmail.com>
 # Distributed under the MIT license.
 #
-# Last Modified: 2017-08-17T17:32:57+08:00, r23
+# Last Modified: 2017-08-20T10:24:31+08:00, r28
 #====================================================================
 
 
@@ -18,8 +18,8 @@ checkGitRoot
 findGitRepositoryDir "$GIT_ROOT"
 
 
-cp -r "$SCRIPT_DIR"../inc/ "$GIT_REPO_DIR"hooks/
-cp -r "$SCRIPT_DIR"../auto-last-modified-time/ "$GIT_REPO_DIR"hooks/
+cp -r "$SCRIPT_DIR"../inc "$GIT_REPO_DIR"hooks/
+cp -r "$SCRIPT_DIR"../auto-last-modified-time "$GIT_REPO_DIR"hooks/
 rm "$GIT_REPO_DIR"hooks/auto-last-modified-time/install.sh
 cp "$SCRIPT_DIR"../fix-permissions.sh "$GIT_REPO_DIR"hooks/
 
