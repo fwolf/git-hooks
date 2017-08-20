@@ -55,6 +55,18 @@ Configs like time format pattern, allowed file types, are set in
 `update-last-modified-time.php'.
 
 
+### phpcs
+
+
+Call [PHP Code Sniffer](https://github.com/squizlabs/PHP_CodeSniffer) executable
+to check commit file, prevent commit when fail.
+
+User can customize config by create `config.php` under `phpcs/` dir, default
+config is in head of `do-phpcs.php`, just declare variable with same name, will
+overwrite default config. Don't forget `<?php` tag.
+
+
+
 ### set-objects-writable
 
 
