@@ -11,7 +11,7 @@
 # Copyright 2017 Fwolf <fwolf.aide+git-hooks@gmail.com>
 # Distributed under the MIT license.
 #
-# Last Modified: 2017-08-17T12:44:49+08:00, r17
+# Last Modified: 2017-08-20T08:49:03+08:00, r28
 #====================================================================
 
 
@@ -28,9 +28,10 @@ addPermissions() {
 
 cd ${SCRIPT_DIR}
 
-addPermissions "*.php"
-addPermissions "*.sh"
+chmod +x fix-permissions.sh
+addPermissions "auto-last-modified-time/*"
 addPermissions "inc/*"
+addPermissions "set-objects-writable/*"
 
 addPermissions post-commit
 addPermissions post-merge
