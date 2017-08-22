@@ -4,6 +4,7 @@
 
 ### Un-versioned
 
+- Optimize script copy in install.sh
 - New hook auto-copyright-year
 - New hook phpcs
 - Move loop of cached files to function

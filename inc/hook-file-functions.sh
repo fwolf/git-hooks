@@ -5,8 +5,24 @@
 # Copyright 2017 Fwolf <fwolf.aide+git-hooks@gmail.com>
 # Distributed under the MIT license.
 #
-# Last Modified: 2017-08-17T12:44:49+08:00, r17
+# Last Modified: 2017-08-22T22:55:55+08:00, r39
 #====================================================================
+
+
+# Call by install.sh only
+function copyHookScripts() {
+    local HOOK_NAME="$1"
+
+    cp -r "$SCRIPT_DIR"../inc "$GIT_REPO_DIR"hooks/
+    cp -r "$SCRIPT_DIR"../"$HOOK_NAME" "$GIT_REPO_DIR"hooks/
+    rm "$GIT_REPO_DIR"hooks/"$HOOK_NAME"/install.sh
+    cp "$SCRIPT_DIR"../fix-permissions.sh "$GIT_REPO_DIR"hooks/
+
+    cd "$GIT_REPO_DIR"hooks/
+    chmod +x inc/*
+    chmod +x "$HOOK_NAME"/*
+    chmod +x fix-permissions.sh
+}
 
 
 # Create an empty hook file
