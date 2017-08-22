@@ -4,7 +4,7 @@
  * @copyright   Copyright 2017 Fwolf <fwolf.aide+git-hooks@gmail.com>
  * @license     https://opensource.org/licenses/MIT MIT
  *
- * Last Modified: 2017-08-22T22:08:23+08:00, r35
+ * Last Modified: 2017-08-22T22:12:22+08:00, r36
  */
 
 
@@ -27,6 +27,13 @@ if (file_exists($userConfigFile) && is_readable($userConfigFile)) {
 
 $destFile = $argv[1];
 $realFilePath = $argv[2];
+
+
+// Check bin path
+if (!is_executable($phpcsPath)) {
+    echo "Bin path '{$phpcsPath}' is not executable'" . PHP_EOL;
+    exit(1);
+}
 
 
 // Check file type
