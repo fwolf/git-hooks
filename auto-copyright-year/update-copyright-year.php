@@ -4,7 +4,7 @@
  * @copyright   Copyright 2017 Fwolf <fwolf.aide+git-hooks@gmail.com>
  * @license     https://opensource.org/licenses/MIT MIT
  *
- * Last Modified: 2017-08-22T22:02:27+08:00, r33
+ * Last Modified: 2017-08-22T22:30:19+08:00, r37
  */
 
 
@@ -57,6 +57,7 @@ $returnStatus = 0;
 $cmd = <<<TAG
 $copyrightUpdaterBinPath $otherOptions "$destFile"
 TAG;
+
 $fileSize = filesize($destFile);
 
 exec($cmd, $output, $returnStatus);

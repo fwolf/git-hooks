@@ -9,7 +9,7 @@
  * @copyright   Copyright 2017 Fwolf <fwolf.aide+git-hooks@gmail.com>
  * @license     https://opensource.org/licenses/MIT MIT
  *
- * Last Modified: 2017-08-18T16:40:33+08:00, r24
+ * Last Modified: 2017-08-22T22:30:19+08:00, r37
  */
 
 
@@ -32,6 +32,7 @@ $allowedExt = [
 
 
 $destFile = $argv[1];
+$realFilePath = $argv[2];
 
 
 // Check file type
@@ -52,7 +53,15 @@ $cmd = <<<TAG
 sed -i -e "1,{$scanLines}s/{$pattern}/{$replacement}/" "$destFile"
 TAG;
 
+// File size maybe same, so check md5 hash for content change
+$fileMd5 = md5_file($destFile);
+
 exec($cmd);
+
+// Print output message
+if ($fileMd5 != md5_file($destFile)) {
+    echo "Auto update last modified time in: $realFilePath" . PHP_EOL;
+}
 
 
 // End script with error code
