@@ -5,7 +5,7 @@
 # Copyright 2017 Fwolf <fwolf.aide+git-hooks@gmail.com>
 # Distributed under the MIT license.
 #
-# Last Modified: 2017-08-20T10:52:12+08:00, r29
+# Last Modified: 2017-08-22T20:39:37+08:00, r32
 #====================================================================
 
 
@@ -39,7 +39,7 @@ function loopChangeCachedFiles() {
             CHANGED_FILE_EXT=`sed 's/^\w\+.//' <<< "${CHANGED_FILE_BASENAME}"`
             CHANGED_FILE=$(mktemp).${CHANGED_FILE_EXT}
             cp "$STAGED_FILE" "$CHANGED_FILE"
-            $1 "$CHANGED_FILE"
+            $1 "$CHANGED_FILE" "$FILE_PATH"
 
             # Catch error code
             let EXIT_CODE+=$?
