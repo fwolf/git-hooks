@@ -4,7 +4,7 @@
  * @copyright   Copyright 2017 Fwolf <fwolf.aide+git-hooks@gmail.com>
  * @license     https://opensource.org/licenses/MIT MIT
  *
- * Last Modified: 2017-08-22T22:30:19+08:00, r37
+ * Last Modified: 2017-08-22T23:24:22+08:00, r40
  */
 
 
@@ -31,24 +31,10 @@ $destFile = $argv[1];
 $realFilePath = $argv[2];
 
 
-// Check bin path
-if (!is_executable($copyrightUpdaterBinPath)) {
-    echo "Bin path '{$copyrightUpdaterBinPath}' is not executable'" . PHP_EOL;
-    exit(1);
-}
+require __DIR__ . '/../inc/checks.php';
 
-
-// Check file type
-$pathParts = pathinfo($destFile);
-if (isset($pathParts['extension'])) {
-    $ext = $pathParts['extension'];
-} else {
-    $ext = "";
-}
-
-if (!in_array($ext, $allowedExt)) {
-    exit(0);
-}
+checkPathExecutable($copyrightUpdaterBinPath);
+checkFileExtension($destFile, $allowedExt);
 
 
 // Do change

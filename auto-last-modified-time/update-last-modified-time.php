@@ -9,7 +9,7 @@
  * @copyright   Copyright 2017 Fwolf <fwolf.aide+git-hooks@gmail.com>
  * @license     https://opensource.org/licenses/MIT MIT
  *
- * Last Modified: 2017-08-22T22:30:19+08:00, r37
+ * Last Modified: 2017-08-22T23:24:22+08:00, r40
  */
 
 
@@ -35,17 +35,9 @@ $destFile = $argv[1];
 $realFilePath = $argv[2];
 
 
-// Check file type
-$pathParts = pathinfo($destFile);
-if (isset($pathParts['extension'])) {
-    $ext = $pathParts['extension'];
-} else {
-    $ext = "";
-}
+require __DIR__ . '/../inc/checks.php';
 
-if (!in_array($ext, $allowedExt)) {
-    return;
-}
+checkFileExtension($destFile, $allowedExt);
 
 
 // Replace line with sed, which should be faster

@@ -4,6 +4,7 @@
 
 ### Un-versioned
 
+- Optimize pre checks in php scripts
 - Optimize script copy in install.sh
 - New hook auto-copyright-year
 - New hook phpcs
