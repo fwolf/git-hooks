@@ -4,6 +4,7 @@
 
 ### Un-versioned
 
+- New hook auto-copyright-year
 - New hook phpcs
 - Move loop of cached files to function
 - Optimize read of staged file in pre-commit

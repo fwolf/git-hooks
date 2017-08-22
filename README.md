@@ -43,6 +43,14 @@ code of the hook you want, and delete code rows.
 ## Hooks Intro
 
 
+### auto-copyright-year
+
+Auto update copyright year when commit.
+
+Need [copyright-year-updater.sh](https://github.com/fwolf/copyright-year-updater.sh)
+to actual do copyright year change job.
+
+
 ### auto-last-modified-time
 
 Update Last Modified Time in source code when submit.
