@@ -4,7 +4,7 @@
  * @copyright   Copyright 2017 Fwolf <fwolf.aide+git-hooks@gmail.com>
  * @license     https://opensource.org/licenses/MIT MIT
  *
- * Last Modified: 2017-08-20T10:57:12+08:00, r30
+ * Last Modified: 2017-08-22T22:08:23+08:00, r35
  */
 
 
@@ -20,6 +20,7 @@ $otherOptions = '';
 // Load user config
 $userConfigFile = __DIR__ . '/config.php';
 if (file_exists($userConfigFile) && is_readable($userConfigFile)) {
+    /** @noinspection PhpIncludeInspection */
     require $userConfigFile;
 }
 
