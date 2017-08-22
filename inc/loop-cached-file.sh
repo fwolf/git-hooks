@@ -5,7 +5,7 @@
 # Copyright 2017 Fwolf <fwolf.aide+git-hooks@gmail.com>
 # Distributed under the MIT license.
 #
-# Last Modified: 2017-08-22T20:39:37+08:00, r32
+# Last Modified: 2017-08-22T22:33:08+08:00, r38
 #====================================================================
 
 
@@ -51,7 +51,7 @@ function loopChangeCachedFiles() {
             git update-index --cacheinfo ${MODE} ${CHANGED_HASH} "$FILE_PATH"
 
             # Patch file in workspace, make it seems changed too
-            diff "$STAGED_FILE" "$CHANGED_FILE" | patch "$FILE_PATH"
+            diff "$STAGED_FILE" "$CHANGED_FILE" | patch --quiet "$FILE_PATH"
 
             rm "$STAGED_FILE"
             rm "$CHANGED_FILE"
