@@ -2,7 +2,7 @@
 
 
 
-### Un-versioned
+### v0.2 (2017-08-22)
 
 - Update README about customize configuration
 - Optimize pre checks in php scripts
