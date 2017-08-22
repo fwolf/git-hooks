@@ -4,6 +4,7 @@
 
 ### Un-versioned
 
+- Update README about customize configuration
 - Optimize pre checks in php scripts
 - Optimize script copy in install.sh
 - New hook auto-copyright-year

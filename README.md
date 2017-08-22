@@ -16,7 +16,7 @@ some/git/repo/dir$ path/to/git-hooks/hook-sub-dir/install.sh
 Each install script has a hash code in it, eg:
 
 ```bash
-installHook post-commit $HOOK_CONTENT 1l0ebpnpj11s5j5p
+installHook post-commit "$HOOK_CONTENT" 1l0ebpnpj11s5j5p
 ```
 
 The `1l0ebpnpj11s5j5p` is hash code, its used when update or delete hook, to
@@ -50,6 +50,8 @@ Auto update copyright year when commit.
 Need [copyright-year-updater.sh](https://github.com/fwolf/copyright-year-updater.sh)
 to actual do copyright year change job.
 
+Configs stored in `update-copyright-year.php'.`
+
 
 ### auto-last-modified-time
 
@@ -59,8 +61,8 @@ Script `update-last-modified-time.php` can use manually.
 
 Usage: Write a start date like `Last Modified: 2017-08-17` in head lines of your
 code, the script will change it to full format, and update when hook run.
-Configs like time format pattern, allowed file types, are set in
-`update-last-modified-time.php'.
+
+Configs stored in `update-last-modified-time.php'.
 
 
 ### phpcs
@@ -69,9 +71,7 @@ Configs like time format pattern, allowed file types, are set in
 Call [PHP Code Sniffer](https://github.com/squizlabs/PHP_CodeSniffer) executable
 to check commit file, prevent commit when fail.
 
-User can customize config by create `config.php` under `phpcs/` dir, default
-config is in head of `do-phpcs.php`, just declare variable with same name, will
-overwrite default config. Don't forget `<?php` tag.
+Configs stored in `do-phpcs.php`.
 
 
 
@@ -82,6 +82,30 @@ Set all files in `.git` writable for current user.
 
 Script `find-readonly-objects.sh` can use manually to find readonly files in
 `.git`.
+
+
+
+## Customize Configuration
+
+As hooks are mostly simple scripts, we use simple config stored in variables.
+Configurable scripts have their default config in top lines, eg:
+
+```php
+// Config
+$phpcsPath = '/usr/local/bin/phpcs';
+$allowedExt = [
+    'php',
+];
+$codingStandard = 'psr2';
+// Other options used by phpcs
+$otherOptions = '';
+```
+
+User can create `config.php` or `config.sh` in same directory with this script,
+and assign user config with __variable assign__ like code above, the hook script
+will auto load user config and overwrite default config.
+
+Notice: Do NOT include `#! /usr/bin/env php` shebang in head of `config.php`.
 
 
 
