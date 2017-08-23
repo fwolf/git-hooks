@@ -2,7 +2,12 @@
 
 
 
-### v0.2 (2017-08-22)
+### v0.2.1 (2017-08-23)
+
+- Optimize performance of readonly files search and chmod
+
+
+## v0.2 (2017-08-22)
 
 - Update README about customize configuration
 - Optimize pre checks in php scripts
@@ -15,7 +20,7 @@
 - Change filename from camelCase to with dashes
 
 
-### v0.1 (2017-08-17)
+## v0.1 (2017-08-17)
 
 - New script fix-permission.sh to help set hook and script permission
 - New hook script autoLastModifiedTime.sh
