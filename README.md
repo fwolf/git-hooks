@@ -50,7 +50,7 @@ Auto update copyright year when commit.
 Need [copyright-year-updater.sh](https://github.com/fwolf/copyright-year-updater.sh)
 to actual do copyright year change job.
 
-Configs stored in `update-copyright-year.php'.`
+Configs stored in `update-copyright-year.php`.
 
 
 ### auto-last-modified-time
@@ -62,7 +62,7 @@ Script `update-last-modified-time.php` can use manually.
 Usage: Write a start date like `Last Modified: 2017-08-17` in head lines of your
 code, the script will change it to full format, and update when hook run.
 
-Configs stored in `update-last-modified-time.php'.
+Configs stored in `update-last-modified-time.php`.
 
 
 ### phpcs
