@@ -8,7 +8,7 @@
 # Copyright 2017 Fwolf <fwolf.aide+git-hooks@gmail.com>
 # Distributed under the MIT license.
 #
-# Last Modified: 2017-08-17T17:01:23+08:00, r21
+# Last Modified: 2017-08-23T12:48:54+08:00, r44
 #====================================================================
 
 
@@ -24,12 +24,8 @@ checkGitRoot
 findGitRepositoryDir "$GIT_ROOT"
 
 
-checkFile() {
-    if [[ -f "$1" && ! -w "$1" ]]; then
-        echo "$1"
-    fi
-}
-
-
 cd "$GIT_ROOT"
-find "$GIT_REPO_DIR" | xargs -I '{}' bash -c "$(declare -f checkFile); checkFile '{}'"
+
+# -perm /u=w means have any of permission: owner can write
+# put ! before -perm means condition check fail
+find "$GIT_REPO_DIR" -type f ! -perm /u=w

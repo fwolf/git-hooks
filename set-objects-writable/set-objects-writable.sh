@@ -6,11 +6,22 @@
 # Copyright 2017 Fwolf <fwolf.aide+git-hooks@gmail.com>
 # Distributed under the MIT license.
 #
-# Last Modified: 2017-08-17T16:50:33+08:00, r20
+# Last Modified: 2017-08-23T12:48:54+08:00, r44
 #====================================================================
 
 
 SCRIPT_DIR=${0%/*}/
 
 
-"$SCRIPT_DIR"find-readonly-objects.sh | xargs -I '{}' chmod u+w '{}'
+. "$SCRIPT_DIR"../inc/git-functions.sh
+
+checkGitCommandAvailable
+
+checkGitRoot
+
+findGitRepositoryDir "$GIT_ROOT"
+
+
+cd "$GIT_ROOT"
+
+find "$GIT_REPO_DIR" -type f ! -perm /u=w -exec chmod u+w '{}' \;
