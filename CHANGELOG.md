@@ -2,6 +2,11 @@
 
 
 
+### v0.2.2 (2017-08-25)
+
+- Fix git repo path error when call from git submodule
+
+
 ### v0.2.1 (2017-08-23)
 
 - Optimize performance of readonly files search and chmod
