@@ -5,7 +5,7 @@
 # Copyright 2017 Fwolf <fwolf.aide+git-hooks@gmail.com>
 # Distributed under the MIT license.
 #
-# Last Modified: 2017-08-17T12:44:49+08:00, r17
+# Last Modified: 2017-08-25T17:50:55+08:00, r46
 #====================================================================
 
 
@@ -48,7 +48,7 @@ function findGitRepositoryDir() {
         # Git dir is under parent git repo, but still is a complete repo
         # Got: gitdir: ../../.git/modules/blah
         GIT_REPO_DIR=`cat "$GIT_ROOT"/.git`
-        # Get tail part
-        GIT_REPO_DIR=${GIT_REPO_DIR:8}
+        # Get tail part, and end with '/'
+        GIT_REPO_DIR=${GIT_REPO_DIR:8}/
     fi
 }
