@@ -2,6 +2,11 @@
 
 
 
+### v0.2.3 (2017-08-31)
+
+- Check file change by md5 instead of file size
+
+
 ### v0.2.2 (2017-08-25)
 
 - Fix git repo path error when call from git submodule
