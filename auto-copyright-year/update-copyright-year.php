@@ -4,7 +4,7 @@
  * @copyright   Copyright 2017 Fwolf <fwolf.aide+git-hooks@gmail.com>
  * @license     https://opensource.org/licenses/MIT MIT
  *
- * Last Modified: 2017-08-22T23:24:22+08:00, r40
+ * Last Modified: 2017-08-31T18:13:11+08:00, r48
  */
 
 
@@ -44,7 +44,8 @@ $cmd = <<<TAG
 $copyrightUpdaterBinPath $otherOptions "$destFile"
 TAG;
 
-$fileSize = filesize($destFile);
+// File size maybe same, so check md5 hash for content change
+$fileMd5 = md5_file($destFile);
 
 exec($cmd, $output, $returnStatus);
 
@@ -54,8 +55,7 @@ if (0 != $returnStatus) {
     echo implode(PHP_EOL, $output);
     echo PHP_EOL;
 } else {
-    clearstatcache();
-    if ($fileSize != filesize($destFile)) {
+    if ($fileMd5 != md5_file($destFile)) {
         echo "Auto update copyright year in: $realFilePath" . PHP_EOL;
     }
 }
