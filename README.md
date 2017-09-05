@@ -64,6 +64,14 @@ code, the script will change it to full format, and update when hook run.
 
 Configs stored in `update-last-modified-time.php`.
 
+__Notice for Mac OSX user__:
+
+Need GNU `find` to work properly, install `findutils` with brew.
+
+```bash
+brew install findutils --with-default-names
+```
+
 
 ### phpcs
 
