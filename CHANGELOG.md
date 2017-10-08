@@ -2,6 +2,11 @@
 
 
 
+### v0.2.4 (2017-10-08)
+
+- Allow '// comment' format when detect last modified time
+
+
 ### v0.2.3 (2017-08-31)
 
 - Check file change by md5 instead of file size
