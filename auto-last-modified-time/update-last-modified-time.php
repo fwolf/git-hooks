@@ -9,13 +9,14 @@
  * @copyright   Copyright 2017 Fwolf <fwolf.aide+git-hooks@gmail.com>
  * @license     https://opensource.org/licenses/MIT MIT
  *
- * Last Modified: 2017-08-22T23:24:22+08:00, r40
+ * Last Modified: 2017-10-08T11:48:25+08:00, r51
  */
 
 
 // Config
 // A little strange for compatible with sed regex
-$pattern = "^\([#* ]\{2,\}\)Last Modified: [0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}" .
+$pattern = "^\([#*\\/ ]\{2,\}\)Last Modified: " .
+    "[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}" .
     "\(T[0-9]\{2\}:[0-9]\{2\}:[0-9]\{2\}+[0-9]\{2\}:[0-9]\{2\}\)\?" .
     "\(, r[0-9]\+\)\?";
 $replacement = "\\1Last Modified: " .
