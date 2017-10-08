@@ -119,4 +119,4 @@ Notice: Do NOT include `#! /usr/bin/env php` shebang in head of `config.php`.
 
 ## License
 
-Distribute under the MIT license.
+Distribute under the [MIT License](LICENSE).
